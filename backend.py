@@ -11,6 +11,11 @@ db = mysql.connector.connect(
 )
 
 
+@app.route("/")
+def index():
+    return "Server is running!"
+
+
 @app.route("/add_expense", methods=["POST"])
 def add_expense():
     data = request.json
