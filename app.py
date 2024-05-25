@@ -50,10 +50,15 @@ class Ui(QtWidgets.QMainWindow):
         super(Ui, self).__init__()
 
         # Detect the correct path to mainwindow.ui
-        current_path = os.path.dirname(sys.argv[0])
-        ui_path = os.path.join(current_path, "mainwindow.ui")
+        if hasattr(sys, "_MEIPASS"):
+            # PyInstaller creates a temp folder and stores path in _MEIPASS
+            current_path = os.path.join(sys._MEIPASS, "mainwindow.ui")
+        else:
+            current_path = os.path.join(
+                os.path.dirname(os.path.abspath(__file__)), "mainwindow.ui"
+            )
 
-        uic.loadUi(ui_path, self)
+        uic.loadUi(current_path, self)
 
         # Connect buttons to methods
         self.addExpenseButton.clicked.connect(self.add_expense)

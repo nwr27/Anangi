@@ -1,3 +1,5 @@
+# app.spec
+
 # -*- mode: python ; coding: utf-8 -*-
 
 block_cipher = None
@@ -6,7 +8,7 @@ a = Analysis(
     ['app.py'],
     pathex=['C:\\Users\\Nana Wartana\\OneDrive\\Dokumen\\Programming\\Anangi'],
     binaries=[],
-    datas=[('mainwindow.ui', '.')],  # Tambahkan file mainwindow.ui
+    datas=[('mainwindow.ui', '.')],  # Menambahkan file mainwindow.ui
     hiddenimports=[],
     hookspath=[],
     runtime_hooks=[],
